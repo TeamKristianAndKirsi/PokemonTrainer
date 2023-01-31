@@ -1,5 +1,15 @@
 export interface Pokemon {
-    id: string;
+    name: string;
+    url: string;
+}
+
+export interface PokemonData {
+    //lisätään sisltö jos tarve
+}
+
+
+//Ei löydy pokemonlistalta
+/*
     model: string;
     manufacturer: string;
     bodyType: string;
@@ -12,4 +22,4 @@ export interface GuitarMaterials {
     neck: string;
     fretboard: string;
     body: string;
-}
+}*/
