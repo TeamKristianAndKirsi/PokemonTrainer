@@ -46,7 +46,7 @@ public login(username: string): Observable<User> {
     // user
     const user = {
       username,
-      pokemons: []
+      pokemon: []
     };
 
     const headers = new HttpHeaders({
