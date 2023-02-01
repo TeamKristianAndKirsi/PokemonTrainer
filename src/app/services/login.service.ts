@@ -8,7 +8,7 @@ import { StorageKeys } from '../enums/storage-keys.enum';
 import { StorageUtil } from '../utils/storage.util';
 
 const { apiUsers, pokemonApiKey } = environment;
-//const url = "https://quiver-distinct-shadow.glitch.me/trainers"
+
 
 @Injectable({
   providedIn: 'root',
@@ -47,7 +47,7 @@ export class LoginService {
     // user
     const user = {
       username,
-      pokemons: [],
+      pokemon: []
     };
 
     const headers = new HttpHeaders({
