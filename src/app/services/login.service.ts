@@ -1,11 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, switchMap, tap } from 'rxjs';
+import { Observable, of, switchMap} from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
 import { map } from 'rxjs';
-import { StorageKeys } from '../enums/storage-keys.enum';
-import { StorageUtil } from '../utils/storage.util';
+
 
 const { apiUsers, pokemonApiKey } = environment;
 
@@ -19,7 +18,8 @@ export class LoginService {
 
   // > Models, HttpClient, Observables, and RXJS operators
   public login(username: string): Observable<User> {
-    return this.checkUsername(username).pipe(
+    return this.checkUsername(username)
+      .pipe(
       // Switchmap allows to change to different observable
       switchMap((user: User | undefined) => {
         if (user === undefined) {
@@ -27,9 +27,6 @@ export class LoginService {
           return this.createUser(username);
         }
         return of(user);
-      }),
-      tap((user: User) => {
-        StorageUtil.storageSave<User>(StorageKeys.User, user);
       })
     );
   }
