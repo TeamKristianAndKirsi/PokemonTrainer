@@ -1,0 +1,9 @@
+<li *ngIf="pokemon" class="mb-3 shadow">
+    <section class="p-4">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" [alt]="pokemon.name" class="block w-32" />
+    </section>
+    <section class="p-4">
+        <span class="text-xl"> {{ pokemon.url }} {{ pokemon.name }} </span>
+    </section>
+</li>
+

@@ -1,7 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize } from 'rxjs';
+import { finalize, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { PokemonListComponent } from '../components/pokemon-list/pokemon-list.component';
 import { Pokemon } from '../models/pokemon.model';
 const { apiPokemons } = environment
 
@@ -35,12 +36,16 @@ export class PokemonCatalogueService {
       .pipe(
         finalize(() => {
           this._loading = false;
-
+        }),
+        map((pokemons: any ) => {
+          console.log(pokemons.results)
+          return pokemons.results
         })
       )
       .subscribe({
         next: (pokemons: Pokemon[]) => {
           this._pokemons = pokemons;
+          
 
         },
         error: (error: HttpErrorResponse) => {
