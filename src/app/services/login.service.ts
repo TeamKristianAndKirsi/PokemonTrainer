@@ -5,9 +5,7 @@ import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
 import { map } from 'rxjs';
 
-
 const { apiUsers, pokemonApiKey } = environment;
-
 
 @Injectable({
   providedIn: 'root',
