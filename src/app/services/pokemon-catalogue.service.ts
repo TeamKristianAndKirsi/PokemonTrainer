@@ -2,7 +2,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { finalize, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { PokemonListComponent } from '../components/pokemon-list/pokemon-list.component';
 import { Pokemon } from '../models/pokemon.model';
 const { apiPokemons } = environment
 
@@ -46,7 +45,6 @@ export class PokemonCatalogueService {
         next: (pokemons: Pokemon[]) => {
           this._pokemons = pokemons;
           
-
         },
         error: (error: HttpErrorResponse) => {
           this._error = error.message;
@@ -54,6 +52,7 @@ export class PokemonCatalogueService {
         }
 
       })
+
 
   }
 }
