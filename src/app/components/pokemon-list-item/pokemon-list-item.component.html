@@ -1,4 +1,5 @@
-<li *ngIf="pokemon" class="mb-3 shadow">
+<li *ngIf="pokemon" class="mb-3 shadow bg-white rounded relative">
+    <app-favourite-pokemon [pokemonName]="pokemon.name"></app-favourite-pokemon>
     <section class="p-4">
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon.url.substring(34, pokemon.url.length -1) }}.png" [alt]="pokemon.name" class="block w-32" />
     </section>
