@@ -14,10 +14,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## 1. Introduction
 
 <a name="aut"></a>
-## 2. Feature
+## 2. Features
 
 <a name="aut"></a>
 ## 3. Technologies
+* Angular
+* Typescript
+* Tailwind Css
+* REST API
+* Glitch
+* Vercel
 
 <a name="aut"></a>
 ## 4. Usage
@@ -29,3 +35,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 <a name="aut"></a>
 ## 6. Sources
+Project was an assignment done during education program created by Noroff Education
