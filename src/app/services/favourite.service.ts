@@ -12,6 +12,7 @@ const { pokemonApiKey, apiUsers} = environment
 @Injectable({
   providedIn: 'root'
 })
+
 export class FavouriteService {
 
   private _loading: boolean = false;
@@ -63,6 +64,7 @@ export class FavouriteService {
 
       finalize(() => {
         this._loading = false;
+        
       })
     ) 
   }
