@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize, Observable, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 import { User } from '../models/user.model';
@@ -15,13 +15,7 @@ const { pokemonApiKey, apiUsers} = environment
 
 export class FavouriteService {
 
-  private _loading: boolean = false;
-
-  get loading(): boolean {
-    return this._loading;
-  }
-
-  constructor(
+   constructor(
     private http: HttpClient, 
     private readonly pokemonService: PokemonCatalogueService,
     private readonly userService: UserService,
@@ -40,8 +34,10 @@ export class FavouriteService {
     }
 
     if (this.userService.inUserPokemons(name)) {
-      throw new Error("addToUsersPokemons: Pokemon allready in pokemonlist with that name");
-
+      this.userService.removeFromUserPokemonList(name);
+      //throw new Error("addToUsersPokemons: Pokemon allready in pokemonlist with that name");
+    } else {
+      this.userService.addToUserPokemonList(pokemon);
     }
 
     const headers = new HttpHeaders({
@@ -49,22 +45,16 @@ export class FavouriteService {
       'x-api-key': pokemonApiKey
     })
 
-    this._loading = true;
+    //this._loading = true;
 
     return this.http.patch<User>(`${apiUsers}/${user.id}`, {
-      pokemon: [...user.pokemon, pokemon]
+      pokemon: [...user.pokemon]
     }, {
       headers
     })
     .pipe(
       tap((updatedUser: User)=> {
         this.userService.user = updatedUser;
-
-      }),
-
-      finalize(() => {
-        this._loading = false;
-        
       })
     ) 
   }
