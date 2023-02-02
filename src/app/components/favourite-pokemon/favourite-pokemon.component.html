@@ -2,6 +2,16 @@
     <button 
         (click)="onFavouriteClick()"
         class="border border-slate-300 rounded flex justify-center items-center p-2 text-purple-400">
-        ADD
+
+        <div *ngIf="!loading; else showLoader">
+            <span *ngIf="isFavourite; then favourite else notFavourite"></span>
+
+            <ng-template #favourite>Added</ng-template>
+            <ng-template #notFavourite>ADD</ng-template>
+        </div>
+
+        <ng-template #showLoader>
+            <span>...Loading</span>
+        </ng-template>
     </button>
 </aside>

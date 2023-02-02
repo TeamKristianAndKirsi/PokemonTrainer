@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { ThisReceiver } from '@angular/compiler';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { FavouriteService } from 'src/app/services/favourite.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-favourite-pokemon',
@@ -10,21 +12,26 @@ import { FavouriteService } from 'src/app/services/favourite.service';
 })
 export class FavouritePokemonComponent {
 
+  public loading: boolean = false;
+  public isFavourite: boolean = false;
   @Input() pokemonName: string = "";
 
-  get loading(): boolean {
-    return this.favouriteService.loading
-  }
-
   constructor(
+    private userService: UserService,
     private readonly favouriteService: FavouriteService
   ) {}
 
+  ngOnInit(): void {
+    this.isFavourite = this.userService.inUserPokemons(this.pokemonName)
+  }
+
   onFavouriteClick(): void {
+    this.loading = true;
     this.favouriteService.addToUsersPokemons(this.pokemonName)
     .subscribe({
-      next: (response: User) => {
-        console.log("NEXT", response);
+      next: (user: User) => {
+        this.loading = false;
+        this.isFavourite = this.userService.inUserPokemons(this.pokemonName);
 
       },
       error: (error: HttpErrorResponse) => {
