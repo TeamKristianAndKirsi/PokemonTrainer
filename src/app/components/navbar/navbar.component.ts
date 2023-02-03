@@ -25,6 +25,7 @@ export class NavbarComponent {
   logout(): void {
     sessionStorage.removeItem(StorageKeys.User)
     this.router.navigateByUrl("/login")
+    window.location.reload()
   }
 
 }
