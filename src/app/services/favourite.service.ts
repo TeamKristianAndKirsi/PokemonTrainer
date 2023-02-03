@@ -21,6 +21,7 @@ export class FavouriteService {
     private readonly userService: UserService,
   ) { }
 
+  // Adds and removes pokemons to/from users pokemonlist
   public addToUsersPokemons(name: string): Observable<User> {
     if(!this.userService.user) {
       throw new Error("addToUsersPokemons: There is no user");
@@ -35,7 +36,6 @@ export class FavouriteService {
 
     if (this.userService.inUserPokemons(name)) {
       this.userService.removeFromUserPokemonList(name);
-      //throw new Error("addToUsersPokemons: Pokemon allready in pokemonlist with that name");
     } else {
       this.userService.addToUserPokemonList(pokemon);
     }
@@ -45,7 +45,6 @@ export class FavouriteService {
       'x-api-key': pokemonApiKey
     })
 
-    //this._loading = true;
 
     return this.http.patch<User>(`${apiUsers}/${user.id}`, {
       pokemon: [...user.pokemon]

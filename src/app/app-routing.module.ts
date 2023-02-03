@@ -5,6 +5,8 @@ import { LoginPage } from "./pages/login/login.page";
 import { PokemonCataloguePage } from "./pages/pokemon-catalogue/pokemon-catalogue.page";
 import { TrainerPage } from "./pages/trainer/trainer.page";
 
+
+// Page navigation routes
 const routes: Routes = [
     {
         path: "",
@@ -32,10 +34,10 @@ const routes: Routes = [
 @NgModule({
     imports: [
         RouterModule.forRoot(routes)
-    ], // Import a module
+    ], 
     exports: [
         RouterModule
-    ] // Expose module and it's features
+    ] 
 })
 export class AppRoutingModule {
 

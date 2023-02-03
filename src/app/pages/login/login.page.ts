@@ -10,8 +10,7 @@ export class LoginPage{
 
   constructor(private readonly router: Router) {}
 
- 
-
+  // Navigates user to pokemons page
   handleLogin(): void {
     this.router.navigateByUrl("/pokemons");
   }

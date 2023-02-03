@@ -33,16 +33,18 @@ export class UserService {
     return false;
   }
 
-    public addToUserPokemonList(pokemon: Pokemon): void {
-      if (this._user) {
-        this._user.pokemon.push(pokemon);
-      }
+  // Adds pokemon to users pokemonlist
+  public addToUserPokemonList(pokemon: Pokemon): void {
+    if (this._user) {
+      this._user.pokemon.push(pokemon);
     }
-  
-    public removeFromUserPokemonList(pokemonName: string): void {
-      if (this._user) {
-        this._user.pokemon = this._user.pokemon.filter((pokemon: Pokemon) => pokemon.name !== pokemonName); 
-      }
+  }
+
+  // Remove pokemon from users pokemonlist
+  public removeFromUserPokemonList(pokemonName: string): void {
+    if (this._user) {
+      this._user.pokemon = this._user.pokemon.filter((pokemon: Pokemon) => pokemon.name !== pokemonName); 
     }
+  }
 
 }

@@ -1,5 +1,7 @@
 export class StorageUtil {
 
+    //Session storage handling
+
     public static storageSave<T>(key: string, value: T): void {
         sessionStorage.setItem(key, JSON.stringify(value));
     }

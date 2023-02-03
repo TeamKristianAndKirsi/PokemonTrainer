@@ -2,7 +2,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { LoginService } from 'src/app/services/login.service';
 import { NgForm } from '@angular/forms'
-import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,19 +9,21 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css'],
 })
+
+//Login page functions
 export class LoginFormComponent {
 
   @Output() login: EventEmitter<void> = new EventEmitter();
 
-  //DI.
+  
   constructor(
     private readonly loginService: LoginService,
     private readonly userService: UserService,
     ) {}
 
+  // Handles form input and logs user in
   public loginSubmit(loginForm: NgForm): void {
 
-    // username
     const {username} = loginForm.value;
 
     this.loginService.login(username)
@@ -32,7 +33,6 @@ export class LoginFormComponent {
         this.login.emit();
       },
       error: () => {
-        // Handle that locally
       },
     });
   }

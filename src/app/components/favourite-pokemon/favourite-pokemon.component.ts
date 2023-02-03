@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { ThisReceiver } from '@angular/compiler';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { FavouriteService } from 'src/app/services/favourite.service';
 import { UserService } from 'src/app/services/user.service';
@@ -10,6 +9,9 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './favourite-pokemon.component.html',
   styleUrls: ['./favourite-pokemon.component.css']
 })
+
+// Favourite-pokemon adds a button to each pokemon, that allows user to collect the pokemon to own list
+
 export class FavouritePokemonComponent {
 
   public loading: boolean = false;
@@ -25,6 +27,7 @@ export class FavouritePokemonComponent {
     this.isFavourite = this.userService.inUserPokemons(this.pokemonName)
   }
 
+  //This function adds the pokemon to the list
   onFavouriteClick(): void {
     this.loading = true;
     this.favouriteService.addToUsersPokemons(this.pokemonName)

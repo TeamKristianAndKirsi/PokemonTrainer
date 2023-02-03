@@ -8,6 +8,8 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './trainer.page.html',
   styleUrls: ['./trainer.page.css']
 })
+
+// Renders pokemons and user information to trainer page
 export class TrainerPage {
 
   get user(): User | undefined {

@@ -29,6 +29,8 @@ export class PokemonCatalogueService {
   
   constructor(private readonly http: HttpClient) { }
 
+
+// Fetches all pokemons from api
   public findAllPokemons(): void {
 
     if (this._pokemons.length > 0 || this.loading) {
