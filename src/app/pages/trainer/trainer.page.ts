@@ -14,6 +14,13 @@ export class TrainerPage {
     return this.userService.user;
   }
 
+  get username(): String {
+    if (this.userService.user) {
+      return this.userService.user.username
+    }
+    return ""
+  }
+
   get pokemon(): Pokemon[] {
     if (this.userService.user) {
       return this.userService.user.pokemon
