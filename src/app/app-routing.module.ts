@@ -19,6 +19,7 @@ const routes: Routes = [
         path: "pokemons",
         component: PokemonCataloguePage,
         canActivate: [ AuthGuard ]
+        
     },
     {
         path: "trainer",
