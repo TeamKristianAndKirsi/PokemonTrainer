@@ -12,9 +12,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 <a name="aut"></a>
 ## 1. Introduction
+Pokemon Trainer web app using Angular framework. The application allows a user to collect Pokémon received from the PokeAPI. Users enter username before being able to collect any Pokémon. Users are able to view the Pokémon that have been collected.
 
 <a name="aut"></a>
 ## 2. Features
+- Login page
+- Pokemon catalogue page
+- Trainer page
 
 <a name="aut"></a>
 ## 3. Technologies
@@ -27,11 +31,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 <a name="aut"></a>
 ## 4. Usage
+Deployed: https://pokemon-trainer-mu.vercel.app/
 
 <a name="aut"></a>
 ## 5. Authors
-[@Kirsi](https://github.com/KipaTa)
-[@wikris](https://github.com/wikris)
+[@Kirsi T](https://github.com/KipaTa)
+[@Kristian W](https://github.com/wikris)
 
 <a name="aut"></a>
 ## 6. Sources
