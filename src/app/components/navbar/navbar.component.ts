@@ -9,6 +9,8 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
+//Navbar functions
 export class NavbarComponent {
 
   get user(): User | undefined{
@@ -21,7 +23,7 @@ export class NavbarComponent {
     private readonly router: Router 
   ) {}
 
-  
+  // Logs user out, removes user from session storage and refreshes the login page
   logout(): void {
     sessionStorage.removeItem(StorageKeys.User)
     this.router.navigateByUrl("/login")

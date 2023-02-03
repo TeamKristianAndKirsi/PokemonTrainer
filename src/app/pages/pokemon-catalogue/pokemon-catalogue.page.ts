@@ -7,6 +7,8 @@ import { PokemonCatalogueService } from 'src/app/services/pokemon-catalogue.serv
   templateUrl: './pokemon-catalogue.page.html',
   styleUrls: ['./pokemon-catalogue.page.css']
 })
+
+// Renders pokemons to pokemon page
 export class PokemonCataloguePage implements OnInit{
 
   get pokemons(): Pokemon[] {
@@ -24,9 +26,7 @@ export class PokemonCataloguePage implements OnInit{
 
   constructor(
     private readonly pokemonCatalogueService: PokemonCatalogueService
-  ) {
-
-  }
+  ) { }
 
   ngOnInit(): void {
     this.pokemonCatalogueService.findAllPokemons();
