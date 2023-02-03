@@ -2,9 +2,8 @@
     <app-favourite-pokemon [pokemonName]="pokemon.name"></app-favourite-pokemon>
     <section class="p-4">
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon.url.substring(34, pokemon.url.length -1) }}.png" [alt]="pokemon.name" class="block w-32" />
+        <span class="text-xl capitalize"> {{ pokemon.name }} </span>
     </section>
-    <section class="p-4">
-        <span class="text-xl"> {{ pokemon.name }} </span>
-    </section>
+    
 </li>
 

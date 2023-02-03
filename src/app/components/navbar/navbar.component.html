@@ -1,8 +1,11 @@
-<nav class="bg-yellow-500 flex justify-between items-center p-4 sticky top-0 w-full z-50">
-    <span class="font-bold">NG Pokemons</span>
-
+<nav class="bg-red-700 text-slate-100 flex justify-between items-center sticky top-0 w-full z-50">
+    
+    <span class="font-bold text-2xl flex justify-between items-center ">
+        <img src="https://www.pngall.com/wp-content/uploads/13/Pokemon-Logo-PNG-Pic.png" alt="pokemonLogo" class="block w-16 m-4" />
+        NG Pokemons</span>
+    
     <ng-container *ngIf="user !== undefined">
-    <ul class="flex">
+    <ul class="flex text-xl">
         <li class="px-4">
             <a routerLink="/pokemons">Pokemons</a>
         </li>
